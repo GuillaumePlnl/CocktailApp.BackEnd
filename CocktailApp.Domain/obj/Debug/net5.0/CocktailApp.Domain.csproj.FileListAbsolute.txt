@@ -1,0 +1,12 @@
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\bin\Debug\net5.0\CocktailApp.Domain.deps.json
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\bin\Debug\net5.0\CocktailApp.Domain.dll
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\bin\Debug\net5.0\ref\CocktailApp.Domain.dll
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\bin\Debug\net5.0\CocktailApp.Domain.pdb
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.csproj.AssemblyReference.cache
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.AssemblyInfoInputs.cache
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.AssemblyInfo.cs
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.dll
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\ref\CocktailApp.Domain.dll
+C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Domain\obj\Debug\net5.0\CocktailApp.Domain.pdb
