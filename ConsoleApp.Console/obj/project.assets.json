@@ -2238,21 +2238,10 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "CocktailApp.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/CocktailApp.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CocktailApp.Domain.dll": {}
-        }
-      },
       "CocktailApp.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "CocktailApp.Domain": "1.0.0",
           "EntityFramework": "6.4.4",
           "Microsoft.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
@@ -7813,11 +7802,6 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "CocktailApp.Domain/1.0.0": {
-      "type": "project",
-      "path": "../CocktailApp.Domain/CocktailApp.Domain.csproj",
-      "msbuildProject": "../CocktailApp.Domain/CocktailApp.Domain.csproj"
-    },
     "CocktailApp.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../CocktailApp.Infrastructure/CocktailApp.Infrastructure.csproj",
@@ -7827,7 +7811,6 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "AutoMapper >= 10.1.1",
-      "CocktailApp.Domain >= 1.0.0",
       "CocktailApp.Infrastructure >= 1.0.0",
       "Newtonsoft.Json >= 13.0.1"
     ]
@@ -7867,9 +7850,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Domain\\CocktailApp.Domain.csproj": {
-              "projectPath": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Domain\\CocktailApp.Domain.csproj"
-            },
             "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Infrastructure\\CocktailApp.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Infrastructure\\CocktailApp.Infrastructure.csproj"
             }

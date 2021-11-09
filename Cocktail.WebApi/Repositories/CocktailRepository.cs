@@ -15,7 +15,7 @@ namespace Cocktail.WebApi.Repositories
         {
             _context = context;
 
-            Console.WriteLine("Ctr de CocktailRepository");
+            Console.WriteLine("Ctr CocktailRepository");
         }
 
         public async Task<IEnumerable<Ingredient>> GetAllIngredients()

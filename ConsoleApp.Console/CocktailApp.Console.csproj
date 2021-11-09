@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CocktailApp.Domain\CocktailApp.Domain.csproj" />
     <ProjectReference Include="..\CocktailApp.Infrastructure\CocktailApp.Infrastructure.csproj" />
   </ItemGroup>
 

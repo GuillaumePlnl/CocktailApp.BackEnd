@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xvAkfABxFJalFFGaNwqQhR6SjLMXsGSdK+gNfS4r895aDMYTyvprpW0S9HDseH4gx/rexRipauSDk+JU1Dj4Og==",
+  "dgSpecHash": "2aM83+Uik6wgXmnxAKkm6EzM7XNPsb4NWKWyiIhl4PVc5VW5q35Sb9Zb1saRi7JkKyGwNWkSC63BsHkk7y3aKQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\Cocktail.WebApi\\Cocktail.WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Administrateur\\.nuget\\packages\\elasticsearch.net\\7.15.2\\elasticsearch.net.7.15.2.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
@@ -39,6 +40,7 @@
     "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\nancy\\2.0.0\\nancy.2.0.0.nupkg.sha512",
+    "C:\\Users\\Administrateur\\.nuget\\packages\\nest\\7.15.2\\nest.7.15.2.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -66,7 +68,7 @@
     "C:\\Users\\Administrateur\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
-    "C:\\Users\\Administrateur\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
+    "C:\\Users\\Administrateur\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\system.codedom\\4.7.0\\system.codedom.4.7.0.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrateur\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",

@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -9,14 +8,11 @@ namespace CocktailApp.Infrastructure
     public partial class CocktailsDbContext : DbContext
     {
         public CocktailsDbContext() : base()
-        {
-            
+        {       
         }
 
-        public CocktailsDbContext(DbContextOptions<CocktailsDbContext> options)
-            : base(options)
+        public CocktailsDbContext(DbContextOptions<CocktailsDbContext> options) : base(options)
         {
-
         }
 
         public virtual DbSet<Alcoholic> Alcoholics { get; set; }
@@ -25,6 +21,7 @@ namespace CocktailApp.Infrastructure
         public virtual DbSet<Glass> Glasses { get; set; }
         public virtual DbSet<Ingredient> Ingredients { get; set; }
         public virtual DbSet<Measure> Measures { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,7 +29,6 @@ namespace CocktailApp.Infrastructure
             {
                   optionsBuilder.UseSqlServer("Data Source=A06436\\SQLEXPRESS;Initial Catalog=COCKTAILDB.MDF;Integrated Security=True");
             }  
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -107,7 +103,17 @@ namespace CocktailApp.Infrastructure
                 entity.HasOne(d => d.Drink).WithMany(p => p.Measures).HasForeignKey(d => d.DrinkPkId)
                                             .OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_IdDrink");
                 //entity.HasKey(e => new { e.IngredientPkId, e.DrinkPkId }).HasName("PK__Measure__E48BFAE6ECCDB344");
-
+            });
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.PkId);
+                entity.ToTable("Users");
+                entity.Property(e => e.PkId).ValueGeneratedNever().HasColumnName("PK_Id");
+                entity.Property(e => e.FirstName).HasMaxLength(200).IsUnicode(false);
+                entity.Property(e => e.LastName).HasMaxLength(200).IsUnicode(false);
+                entity.Property(e => e.Username).HasMaxLength(200).IsUnicode(false);
+                entity.Property(e => e.Password).HasMaxLength(200).IsUnicode(false);
+                entity.Property(e => e.UserType).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

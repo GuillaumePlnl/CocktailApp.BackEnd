@@ -13,6 +13,3 @@ C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\Coc
 C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Infrastructure\obj\Debug\net5.0\ref\CocktailApp.Infrastructure.dll
 C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Infrastructure\obj\Debug\net5.0\CocktailApp.Infrastructure.pdb
 C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Infrastructure\obj\Debug\net5.0\CocktailApp.Infrastructure.genruntimeconfig.cache
-C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Infrastructure\bin\Debug\net5.0\CocktailApp.Domain.dll
-C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Infrastructure\bin\Debug\net5.0\CocktailApp.Domain.pdb
-C:\Users\Administrateur\Desktop\Guillaume\2021-10-08_CocktailsApp2\Solution1\CocktailApp.Infrastructure\obj\Debug\net5.0\CocktailApp.Infrastructure.csproj.CopyComplete

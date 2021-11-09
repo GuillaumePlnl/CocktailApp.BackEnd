@@ -2296,16 +2296,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "CocktailApp.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/CocktailApp.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CocktailApp.Domain.dll": {}
-        }
       }
     }
   },
@@ -7875,16 +7865,10 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "CocktailApp.Domain/1.0.0": {
-      "type": "project",
-      "path": "../CocktailApp.Domain/CocktailApp.Domain.csproj",
-      "msbuildProject": "../CocktailApp.Domain/CocktailApp.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "CocktailApp.Domain >= 1.0.0",
       "EntityFramework >= 6.4.4",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
@@ -7926,11 +7910,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Domain\\CocktailApp.Domain.csproj": {
-              "projectPath": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Domain\\CocktailApp.Domain.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
