@@ -52,6 +52,8 @@ namespace Cocktail.WebApi.Services
 
             //var user = _users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
             var userDb = _context.Users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
+            // return null if user not found
+            if (userDb == null) return null;
 
             var user = new UserAPI
             {
@@ -62,8 +64,7 @@ namespace Cocktail.WebApi.Services
                 Password = userDb.Password
             };
 
-            // return null if user not found
-            if (user == null) return null;
+
 
             // authentication successful so generate jwt token
             var token = generateJwtToken(user);
