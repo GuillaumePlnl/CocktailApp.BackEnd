@@ -42,6 +42,7 @@ namespace Cocktail.WebApi.Services
 
             Console.WriteLine("Ctr UserService avec context");
         }
+
         //public UserService(IOptions<AppSettings> appSettings)
         //{
         //    _appSettings = appSettings.Value;
@@ -63,7 +64,6 @@ namespace Cocktail.WebApi.Services
                 Username = userDb.Username,
                 Password = userDb.Password
             };
-
 
 
             // authentication successful so generate jwt token
@@ -91,6 +91,7 @@ namespace Cocktail.WebApi.Services
                     }
                 );
             }
+
             return users;
         }
 
@@ -105,12 +106,10 @@ namespace Cocktail.WebApi.Services
                 Username = userDb.Username,
                 Password = userDb.Password
             };
-
             return user;
         }
 
         // helper methods
-
         private string generateJwtToken(UserAPI user)
         {
             // generate token that is valid for 7 days
@@ -119,7 +118,7 @@ namespace Cocktail.WebApi.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddMinutes(15),
+                Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

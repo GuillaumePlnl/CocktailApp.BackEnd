@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Cocktail.WebApi.Repositories
@@ -14,7 +15,6 @@ namespace Cocktail.WebApi.Repositories
         public CocktailRepository(CocktailsDbContext context)
         {
             _context = context;
-
             Console.WriteLine("Ctr CocktailRepository");
         }
 
@@ -24,9 +24,28 @@ namespace Cocktail.WebApi.Repositories
             {
                 throw new ArgumentNullException("Context or Ingredients Null");
             }
-
             var ret = await _context.Ingredients.OrderBy(i => i.IngredientName).ToListAsync();
             Console.WriteLine("Ctr de GetAllIngredients : " + ret.Count().ToString() + " elements");
+            return ret;
+        }
+        public async Task<IEnumerable<Glass>> GetAllGlasses()
+        {
+            if (_context == null || _context.Glasses == null)
+            {
+                throw new ArgumentNullException("Context or Ingredients Null");
+            }
+            var ret = new List<Glass>();
+            ret = await _context.Glasses.OrderBy(i => i.GlassName).ToListAsync();
+            return ret;
+        }
+        public async Task<IEnumerable<Alcoholic>> GetAllAlcoholics()
+        {
+            if (_context == null || _context.Alcoholics == null)
+            {
+                throw new ArgumentNullException("Context or Ingredients Null");
+            }
+            var ret = new List<Alcoholic>();
+            ret = await _context.Alcoholics.OrderBy(i => i.AlcoholicName).ToListAsync();
             return ret;
         }
 
@@ -53,7 +72,6 @@ namespace Cocktail.WebApi.Repositories
                         PkId = d.PkId,
                     });
                 }
-
             Console.WriteLine("Ctr de GetAllDrinks : " + rep.Count().ToString() + " elements");
             return rep;
         }
@@ -69,13 +87,9 @@ namespace Cocktail.WebApi.Repositories
             return await _context.Drinks.Where(d => ListeIdDrink.Contains(d.PkId)).OrderBy(n => n.DrinkName).ToListAsync();
         }
 
-        public async Task<DrinkFull> GetDetailledDrink(string drinkId)
+        public async Task<DrinkFull> GetDetailledDrink(string drinkPkId)
         {
-
-            //Drink a = _context.Drinks.Where(m => Guid.Parse(drinkId) == m.PkId)
-            //                         .FirstOrDefault();
-            Console.WriteLine("Ctr de GetDetailledDrink. retour cocktail : " /*+ a.Select(d => d.DrinkName)*/);
-
+            Console.WriteLine("Ctr GetDetailledDrink.");
 
             //var glass = _context.Glasses.Where(i => i.PkId == a.FkGlass).Select(j => j.GlassName).FirstOrDefault();
             //var category = _context.Categories.Where(i => i.PkId == a.FkCategory)
@@ -86,10 +100,15 @@ namespace Cocktail.WebApi.Repositories
             //                                    .Select(j => j.Quantity).ToList();
             //var ingredients = _context.Measures.Where(i => i.DrinkPkId == Guid.Parse(drinkId))
             //                                    .Select(j => j.Ingredient).Select(k => k.IngredientName).ToList();
-            var c = _context.Measures.Where(m => m.DrinkPkId == Guid.Parse(drinkId)).Include(m => m.Ingredient).Include(m => m.Drink).ToList();
-            var d = _context.Drinks.Include(d => d.Glass).Include(d => d.Alcoholic)
-                                    .Include(d => d.Category).FirstOrDefault(d => d.PkId == Guid.Parse(drinkId));
 
+            var detailledDrink = await _context.Drinks.Include(d => d.Glass).Include(d => d.Alcoholic)
+                                    .Include(d => d.Category).FirstOrDefaultAsync(d => d.PkId == Guid.Parse(drinkPkId));
+            // "Where" not needed on top request because can include the filter in firstOrDefault. 
+            //var detailledDrink = await _context.Drinks.Where(d => d.PkId == Guid.Parse(drinkId))
+            //                        .Include(d => d.Alcoholic).Include(d => d.Category).FirstOrDefaultAsync();
+
+            var detailledMeasures = await _context.Measures.Where(m => m.DrinkPkId == Guid.Parse(drinkPkId)).Include(m => m.Ingredient)
+                        .Include(m => m.Drink).ToListAsync();
 
             //var queryIngredientQuantity = (from Measure in _context.Measures
             //            join Ingredient in _context.Ingredients
@@ -104,58 +123,53 @@ namespace Cocktail.WebApi.Repositories
             //                                        DrinkName = Drink.DrinkName
             //            }).ToList();
 
-
-            //Measure drinkComplement = GetDrinkComplement(drinkId);
-            var rep = new DrinkFull
+            var drinkFull = new DrinkFull
             {
-                AlcoholicName = d.Alcoholic.AlcoholicName,
-                CategoryName = d.Category.CategoryName,
-                DrinkName = d.DrinkName,
-                GlassName = d.Glass.GlassName,
-                Instruction = d.Instruction,
-                UrlPicture = d.UrlPicture,
-                PkId = d.PkId,
-                IngredientsQuantities = new List<IngredientFull> (),
+                AlcoholicName = detailledDrink.Alcoholic.AlcoholicName,
+                CategoryName = detailledDrink.Category.CategoryName,
+                DrinkName = detailledDrink.DrinkName,
+                GlassName = detailledDrink.Glass.GlassName,
+                Instruction = detailledDrink.Instruction,
+                UrlPicture = detailledDrink.UrlPicture,
+                PkId = detailledDrink.PkId,
+                IngredientsQuantities = new List<IngredientFull> ()
             };
 
-            foreach(var measure in c)
+            foreach(var dm in detailledMeasures)
             {
                 var ingredientToAdd = new IngredientFull()
                 {
-                    DrinkName = rep.DrinkName,
-                    FK_IdDrink = rep.PkId,
-                    IngredientName = measure.Ingredient.IngredientName,
-                    Quantity = measure.Quantity
+                    DrinkName = drinkFull.DrinkName,
+                    FK_IdDrink = drinkFull.PkId,
+                    IngredientName = dm.Ingredient.IngredientName,
+                    Quantity = dm.Quantity
                 };
-                rep.IngredientsQuantities.Add(ingredientToAdd);
+                drinkFull.IngredientsQuantities.Add(ingredientToAdd);
             }
 
-
-            //List<DrinkFull> resp2 = new() { rep };
-            return rep;
+            return drinkFull;
         }
 
         public async Task<IEnumerable<DrinkFull>> GetAllCocktails()
         {
-            var a = await _context.Drinks.Select(a => new DrinkFull
-                                        {
-                                            PkId = a.PkId,
-                                            UrlPicture = a.UrlPicture,
-                                            DrinkName = a.DrinkName,
-                                            CategoryName = a.Category.CategoryName,
-                                        }
+            var cocktails = await _context.Drinks.Select(a => new DrinkFull
+            {
+                PkId = a.PkId,
+                UrlPicture = a.UrlPicture,
+                DrinkName = a.DrinkName,
+                CategoryName = a.Category.CategoryName,
+            }
                                     ).OrderBy(e => Guid.NewGuid()).Take(10).ToListAsync();
-            Console.WriteLine(DateTime.Now + " : Ctr de GetAllCocktails. " + a.Count() + " cocktails trouvés. ");
-
-            return a;
+            Console.WriteLine(DateTime.Now + " : Ctr de GetAllCocktails. " + cocktails.Count() + " cocktails trouvés. ");
+            return cocktails;
         }
 
         public async Task<IEnumerable<DrinkFull>> GetDrinkBySearchName(string searchString)
         {
-            List<DrinkFull> a = new();
+            List<DrinkFull> drinks = new();
             if (String.IsNullOrEmpty(searchString))
             {
-                a = await _context.Drinks.Select(b => new DrinkFull
+                drinks = await _context.Drinks.Select(b => new DrinkFull
                 {
                     PkId = b.PkId,
                     UrlPicture = b.UrlPicture,
@@ -165,7 +179,7 @@ namespace Cocktail.WebApi.Repositories
             }
             else
             {
-                a = await _context.Drinks.Where(a => a.DrinkName.StartsWith(searchString)).Select(b => new DrinkFull
+                drinks = await _context.Drinks.Where(a => a.DrinkName.StartsWith(searchString)).Select(b => new DrinkFull
                 {
                     PkId = b.PkId,
                     UrlPicture = b.UrlPicture,
@@ -174,9 +188,54 @@ namespace Cocktail.WebApi.Repositories
                 }).ToListAsync();
             }
 
-            Console.WriteLine(DateTime.Now + " : Ctr de GetDrinkBySearchName. Cocktail : " + a.FirstOrDefault().DrinkName);
+            Console.WriteLine(DateTime.Now + " : Ctr de GetDrinkBySearchName. Cocktail : " + drinks.FirstOrDefault().DrinkName);
+            return drinks;
+        }
 
-            return a;
+        public async Task CreateDrink(Drink drinkJson)
+        {
+            //// si ingredients non fournis dans la requete (donc inexistants), création de nouveaux Guid
+            //if(Regex.IsMatch(drinkJson.FkGlass.ToString(),"[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}") != true)
+            //{
+            //    drinkJson.FkGlass = Guid.NewGuid();
+
+            //}
+            //if (Regex.IsMatch(drinkJson.FkCategory.ToString(),"[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}") != true)
+            //{
+            //    drinkJson.FkCategory = Guid.NewGuid();
+            //}
+            //if (Regex.IsMatch(drinkJson.FkAlcoholic.ToString(),"[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}") != true)
+            //{
+            //    drinkJson.FkAlcoholic = Guid.NewGuid();
+            //}
+            Drink newDrink = drinkJson;
+            //    new()
+            //{
+            //    PkId = drinkJson.PkId,
+            //    DrinkName = drinkJson.DrinkName,
+            //    Alcoholic = drinkJson.Alcoholic,
+            //    Category = drinkJson.Category,
+            //    Glass = drinkJson.Glass,
+            //    Instruction = drinkJson.Instruction,
+            //    Measures = drinkJson.Measures,
+            //    UrlPicture = drinkJson.UrlPicture,
+
+            //    FkAlcoholic = drinkJson.FkAlcoholic,
+            //    FkCategory = drinkJson.FkCategory,
+            //    FkGlass = drinkJson.FkGlass,
+            //};
+
+            _context.Drinks.Add(newDrink);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("Saving in Db failed for some reason.");
+            }
+            return;
         }
     }
 }

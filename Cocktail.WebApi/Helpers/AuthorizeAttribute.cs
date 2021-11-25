@@ -12,12 +12,17 @@ namespace Cocktail.WebApi.Helpers
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             var user = (UserAPI)context.HttpContext.Items["User"];
-            //if(user == null)
-            //{
-            //    // not logged in
-            //    context.Result = new JsonResult(new { message = "Unauthorized" })
-            //                            { StatusCode = StatusCodes.Status401Unauthorized };
-            //}
+
+
+            // A commenter pour éviter le refus systématique de requête
+            if (user == null)
+            {
+                // not logged in
+                context.Result = new JsonResult(new { message = "Unauthorized" })
+                { StatusCode = StatusCodes.Status401Unauthorized };
+            }
+
+
         }
     }
 }

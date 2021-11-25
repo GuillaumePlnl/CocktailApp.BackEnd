@@ -12,6 +12,7 @@ namespace Cocktail.WebApi.Repositories
         public Task<IEnumerable<CocktailApp.Infrastructure.Ingredient>> GetAllIngredients();
 
         public Task<IEnumerable<DrinkFull>> GetAllDrinks();
+
         public Task<IEnumerable<DrinkFull>> GetDrinkBySearchName(string searchString);
 
         // Detail drink
@@ -23,7 +24,6 @@ namespace Cocktail.WebApi.Repositories
         //public Task<IEnumerable<Ingredient>> GetDrinkComplement(string drinkId);
 
         public Task<IEnumerable<DrinkFull>> GetAllCocktails();
-
-
+        Task CreateDrink(Drink drink);
     }
 }

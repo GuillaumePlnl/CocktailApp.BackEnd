@@ -6,9 +6,6 @@ using System.Threading;
 using CocktailApp.Infrastructure;
 using System.Linq;
 using System.Collections.Generic;
-using System.Data.Entity;
-using AutoMapper;
-using System.Text.RegularExpressions;
 
 namespace CocktailApp.Console
 {
@@ -21,9 +18,9 @@ namespace CocktailApp.Console
             for (char i = 'a'; i <= 'z'; i++)
             {
                 string jsonExtractFromUrl = Helper.ExtractUrlCocktail(i.ToString());
-                RootCocktail res = JsonConvert.DeserializeObject<RootCocktail>(jsonExtractFromUrl);
+                RootCocktail ret = JsonConvert.DeserializeObject<RootCocktail>(jsonExtractFromUrl);
 
-                newCocktails.drinks = res.drinks;
+                newCocktails.drinks = ret.drinks;
                 if(newCocktails.drinks != null)
                 {
                     Helper.PutDataInDb(newCocktails);
@@ -31,9 +28,7 @@ namespace CocktailApp.Console
 
                 Thread.Sleep(600);
             }
-
         }
-
     }
 
     public static class Helper
@@ -194,7 +189,6 @@ namespace CocktailApp.Console
 
         public static string ExtractUrlCocktail(string letter)
         {
-
             using WebClient webClient = new System.Net.WebClient();
 
             WebClient n = new();
