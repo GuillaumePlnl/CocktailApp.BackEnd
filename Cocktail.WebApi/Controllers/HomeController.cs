@@ -82,23 +82,23 @@ namespace Cocktail.WebApi.Controllers
         [HttpPost("/createDrink")]
         public async Task<IActionResult> CreateDrink([Bind(include:"id,dn,url,inst,fkcat,fkglas,fkalc,meas")][FromBody]DrinkDTO drinkDTO)
         {
-            /*
-{
-    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "dn": "bazooka",
-    "url": "https://tipsybartender.com/static/47103fd9ec5b8f5edc761c307c839953/aa61c/Bazooka-Joe-Shooters.jpg",
-    "inst": "Try by yourself",
-    "fkcat": "4dd298d5-8bde-4485-aebe-bcfd82cd81e0",
-    "fkglas": "22dc688e-63de-4bc2-9ccd-04a99f311507",
-    "fkalc": "063ee82e-7181-4203-8bf2-a4583aaaf2dd",
-    "meas": [
-    "Vodka&=1/3", "martini&=1/3", "coco&=1/3"
-    ]
-}
+            /* attributes exemple
+            {
+                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                "dn": "bazooka",
+                "url": "https://tipsybartender.com/static/47103fd9ec5b8f5edc761c307c839953/aa61c/Bazooka-Joe-Shooters.jpg",
+                "inst": "Try by yourself",
+                "fkcat": "4dd298d5-8bde-4485-aebe-bcfd82cd81e0",
+                "fkglas": "22dc688e-63de-4bc2-9ccd-04a99f311507",
+                "fkalc": "063ee82e-7181-4203-8bf2-a4583aaaf2dd",
+                "meas": [
+                "Vodka&=1/3", "martini&=1/3", "coco&=1/3"
+                ]
+            }
             */
 
-
             if (drinkDTO == null) return BadRequest();
+
             drinkDTO.id = Guid.Parse("00000000" + Guid.NewGuid().ToString().Substring(8));
             
             var measCollection = new Collection<Measure>() { };

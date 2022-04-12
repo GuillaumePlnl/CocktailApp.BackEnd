@@ -37,11 +37,11 @@ namespace Cocktail.WebApi
             // Service JWT et injection de dépendance
             // Va attribuer la valeur de Secret au champs de AppSettings au démarrage
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            //configure DI for application services
 
+            //configure DI for application services
             services.AddScoped<IUserService, UserService>();
 
-            // Injection de dépendance Db
+            // Injection de dépendance de notre Db
             services.AddTransient(typeof(ICocktailRepository), typeof(CocktailRepository));
             services.AddDbContext<CocktailsDbContext>(options =>
                   options.UseSqlServer(Configuration.GetConnectionString("CocktailContext")));
@@ -74,11 +74,9 @@ namespace Cocktail.WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-
             });
 
             //app.UseHttpsRedirection();
-
         }
     }
 }

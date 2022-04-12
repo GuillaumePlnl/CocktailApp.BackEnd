@@ -12,7 +12,6 @@ namespace CocktailApp.Console.DTOs
         public RootCocktail()
         {
         }
-
         public DrinkJson[] drinks { get; set; }
     }
 
@@ -20,8 +19,8 @@ namespace CocktailApp.Console.DTOs
     {
         public DrinkJson()
         {
-
         }
+
         //TBL_UrlPicture
         [JsonPropertyName("idDrink")]
         public string idDrink { get; set; }
@@ -33,19 +32,19 @@ namespace CocktailApp.Console.DTOs
         //public string strTags { get; set; }
         //public object strVideo { get; set; }
 
-        ////TBL_Category
+        //TBL_Category
         [JsonPropertyName("strCategory")]
         public string strCategory { get; set; }
         //public string strIBA { get; set; }
 
-        ////TBL_alcoholic
+        //TBL_alcoholic
         [JsonPropertyName("strAlcoholic")]
         public string strAlcoholic { get; set; }
 
-        ////TBL_Glass
+        //TBL_Glass
         public string strGlass { get; set; }
 
-        ////TBL_Drink
+        //TBL_Drink
         [JsonPropertyName("strInstructions")]
         public string strInstructions { get; set; }
         //public object strInstructionsES { get; set; }
@@ -56,8 +55,7 @@ namespace CocktailApp.Console.DTOs
         //public object strInstructionsZHHANT { get; set; }
         //public string strDrinkThumb { get; set; }
 
-        ////TBL_Ingredient  >> designation
-        ///
+        //TBL_Ingredient  >> designation
         [JsonPropertyName("strIngredient1")]
         public string strIngredient1 { get; set; }
         [JsonPropertyName("strIngredient2")]
@@ -89,7 +87,7 @@ namespace CocktailApp.Console.DTOs
         [JsonPropertyName("strIngredient15")]
         public string strIngredient15 { get; set; }
 
-        ////TBL_Measure  >> quantity
+        //TBL_Measure  >> quantity
         public string strMeasure1 { get; set; }
         public string strMeasure2 { get; set; }
         public string strMeasure3 { get; set; }
@@ -106,7 +104,7 @@ namespace CocktailApp.Console.DTOs
         public string strMeasure14 { get; set; }
         public string strMeasure15 { get; set; }
 
-        //UrlPicture
+        // UrlPicture
         public string strDrinkThumb { get; set; }
         //public string strImageAttribution { get; set; }
         //public string strCreativeCommonsConfirmed { get; set; }

@@ -4,10 +4,10 @@ using System;
 namespace CocktailAppConsoleTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CocktailAppConsoleTest
     {
         [TestMethod()]
-        public void TestMethod1()
+        public void Main_PutDataInDb_Ok()
         {
 
 

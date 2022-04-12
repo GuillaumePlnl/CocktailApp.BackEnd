@@ -7877,28 +7877,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrateur\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\AY024049\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Infrastructure\\CocktailApp.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\AY024049\\source\\repos\\GitHub\\CocktailApp.Infrastructure\\CocktailApp.Infrastructure.csproj",
       "projectName": "CocktailApp.Infrastructure",
-      "projectPath": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Infrastructure\\CocktailApp.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Administrateur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrateur\\Desktop\\Guillaume\\2021-10-08_CocktailsApp2\\Solution1\\CocktailApp.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\AY024049\\source\\repos\\GitHub\\CocktailApp.Infrastructure\\CocktailApp.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\AY024049\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AY024049\\source\\repos\\GitHub\\CocktailApp.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\AY024049\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7961,7 +7953,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
